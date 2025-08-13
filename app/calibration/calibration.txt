@@ -1,0 +1,3 @@
+# SCR1 uses only idle params; here for future parity
+idle_rpm=700
+idle_gain=20
