@@ -1,0 +1,48 @@
+name: "Software Change Request (SCR)"
+description: "Create a new SCR for ECM"
+title: "SCR{000000}: <short title>"
+labels: ["type:SCR"]
+body:
+  - type: input
+    id: scr_id
+    attributes:
+      label: SCR ID
+      placeholder: "SCR000001"
+    validations: { required: true }
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: "One-paragraph overview"
+      placeholder: "Implement ignition ON/OFF logic..."
+    validations: { required: true }
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Functional Requirements
+      placeholder: |
+        FR1: ignition=1 -> engine_state=1 (same iteration)
+        FR2: ignition=0 -> engine_state=0 & engine_speed=0
+    validations: { required: true }
+  - type: textarea
+    id: interfaces
+    attributes:
+      label: Interfaces (Inputs/Outputs/Calibrations)
+      placeholder: |
+        Inputs: ignition_switch (0/1)
+        Outputs: engine_state (0/1), engine_speed (rpm)
+        Calibrations: idle_rpm, idle_gain
+  - type: textarea
+    id: tests
+    attributes:
+      label: Test Cases (high level)
+      placeholder: |
+        TC-1: OFF->ON->OFF sequence
+        TC-2: rapid toggle
+        TC-3: noise ignored when OFF
+  - type: dropdown
+    id: release_target
+    attributes:
+      label: Target Release
+      options: [Backlog, Release_1.0]
+      default: 1
